@@ -22,7 +22,6 @@ echo ""
 
 echo "   Building with marp..."
 echo ""
-mkdir output
 marp ${MARP_ARGS}
 echo "✔  Built Successfully!"
 echo ""
@@ -30,7 +29,6 @@ echo ""
 echo "   Publishing to ${GITHUB_REPOSITORY} ${REMOTE_BRANCH}..."
 echo ""
 
-cd output/
 remote_repo="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" && \
 git init && \
 git config user.name "marp-action" && \
