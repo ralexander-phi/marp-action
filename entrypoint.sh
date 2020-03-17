@@ -38,7 +38,7 @@ git config user.email "marp-action@users.noreply.github.com" && \
 git add . && \
 echo -n 'Files to Commit:' && ls -l | wc -l && \
 git commit -m'action build' > /dev/null 2>&1 && \
-git push --force $remote_repo master:${REMOTE_BRANCH}> /dev/null 2>&1 && \
+git push --force $remote_repo master:${PUBLISH_TO_BRANCH}> /dev/null 2>&1 && \
 echo "✔  Pushed Successfully!"
 echo ""
 
