@@ -21,22 +21,26 @@ echo "$STARTING_MESSAGE"
 echo ""
 
 echo "   Building with marp..."
+echo ""
+mkdir output
 marp ${MARP_ARGS}
 echo "✔  Built Successfully!"
+echo ""
 
-exit 0
+echo "   Publishing to ${GITHUB_REPOSITORY} ${REMOTE_BRANCH}..."
+echo ""
 
-
-
+cd output/
 remote_repo="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" && \
-remote_branch="gh-pages" && \
 git init && \
-git config user.name "${GITHUB_ACTOR}" && \
-git config user.email "${GITHUB_ACTOR}@users.noreply.github.com" && \
+git config user.name "marp-action" && \
+git config user.email "marp-action@users.noreply.github.com" && \
 git add . && \
 echo -n 'Files to Commit:' && ls -l | wc -l && \
 git commit -m'action build' > /dev/null 2>&1 && \
-git push --force $remote_repo master:$remote_branch > /dev/null 2>&1 && \
+git push --force $remote_repo master:${REMOTE_BRANCH}> /dev/null 2>&1 && \
+echo "✔  Pushed Successfully!"
+echo ""
 
 echo "$SUCCESS_MESSAGE"
 
