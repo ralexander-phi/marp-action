@@ -1,0 +1,8 @@
+name: marp-action
+description: 'Build your Marp presentation into a GitHub Pages site'
+branding: 
+  icon: 'send'
+  color: 'green'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
