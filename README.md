@@ -8,5 +8,5 @@ Build a Marp Presentation automatically using GitHub Actions. Publish to GitHub 
 
 ## Local development
 
-docker build -t marp-action ./
-docker run -t marp-action
+    docker build -t marp-action ./
+    docker run -t marp-action
