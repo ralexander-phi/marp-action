@@ -1,22 +1,12 @@
 # marp-action
 
-Build a Marp Presentation Website from a repo
+Build a Marp Presentation automatically using GitHub Actions. Publish to GitHub Pages.
 
+[🚀 Setup Instructions!](https://alexsci.com/test-marp-action/)
 
-## Inputs
+[🔧 Template repo!](github.com/ralexander-phi/test-marp-action)
 
-* MARP\_ARGS - Build arguements for Marp
-* GITHUB\_ACTOR - Who is performing actions (I.E. Jenkins)
-* GITHUB\_REPOSITORY - The repository to push to
-* GITHUB\_TOKEN - A GitHub application access token to use
-
-
-## Example
-
-    MARP\_ARGS=slides.md -o index.html
-
-
-## Local testing
+## Local development
 
 docker build -t marp-action ./
 docker run -t marp-action
