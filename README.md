@@ -1,10 +1,12 @@
 # marp-action
 
-Build a [Marp Presentation](https://marp.app/) automatically using GitHub Actions. Publish to GitHub Pages.
+## Description
 
-[🚀 Setup Instructions!](https://alexsci.com/test-marp-action/)
+Publish your [Marp Presentation](https://marp.app/) to GitHub Pages automatically using a GitHub Action.
 
-[🔧 Template repo!](https://github.com/ralexander-phi/test-marp-action)
+## 🚀 Getting Started
+
+Read through the [setup instructions](https://alexsci.com/test-marp-action/) to learn the process. You'll be using this [template repo](https://github.com/ralexander-phi/test-marp-action) as your starting point.
 
 ## Local development
 
