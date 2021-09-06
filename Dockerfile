@@ -1,11 +1,11 @@
-FROM node:13.10
+FROM node:16.8
 
 LABEL description "A GitHub Action to build a Marp Presentation website to GitHub Pages"
 LABEL repository "http://github.com/ralexander-phi/marp-action"
 
 RUN apt update && apt install -y git
 
-RUN npm install -g @marp-team/marp-cli@0.17.2
+RUN npm install -g @marp-team/marp-cli@1.4.0
 
 ENV IS_DOCKER true
 
