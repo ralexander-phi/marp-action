@@ -36,7 +36,8 @@ git config user.email "marp-action@users.noreply.github.com" && \
 git add . && \
 git status && \
 curr_branch="$(git rev-parse --abbrev-ref HEAD)" && \
-git commit -m'action build' && \
+commit_msg="${COMMIT_MSG:-'Marp Action Build'}" && \
+git commit -m "${commit_msg}" && \
 git push --force $remote_repo ${curr_branch}:${PUBLISH_TO_BRANCH}
 
 echo "✔  Pushed Successfully!"
