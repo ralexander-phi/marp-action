@@ -37,8 +37,14 @@ git add . && \
 git status && \
 curr_branch="$(git rev-parse --abbrev-ref HEAD)" && \
 commit_msg="${COMMIT_MSG:-'Marp Action Build'}" && \
-git commit -m "${commit_msg}" && \
-git push --force $remote_repo ${curr_branch}:${PUBLISH_TO_BRANCH}
+git commit -m "${commit_msg}" 
+
+if [ "$NO_FORCE_PUSH" = true ]
+then 
+  git push $remote_repo ${curr_branch}:${PUBLISH_TO_BRANCH}
+else
+  git push --force $remote_repo ${curr_branch}:${PUBLISH_TO_BRANCH}
+fi
 
 echo "✔  Pushed Successfully!"
 echo ""
