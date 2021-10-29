@@ -8,7 +8,20 @@ Publish your [Marp Presentation](https://marp.app/) to GitHub Pages automaticall
 
 Read through the [setup instructions](https://alexsci.com/test-marp-action/) to learn the process. You'll be using this [template repo](https://github.com/ralexander-phi/test-marp-action) as your starting point.
 
-## Local development
+## 🔧 Configuration
+
+The Action can be configured using environment variables:
+
+| Variable | Required | Description |
+| --- | --- | --- |
+| GITHUB_REPOSITORY | x | The repo to publish the rendered slides to |
+| GITHUB_TOKEN | x | An access to token that allows pushing to GITHUB_REPOSITORY |
+| PUBLISH_TO_BRANCH | x | The branch to commit the slides on. Likely `main` or ` gh-pages`  |
+| NO_FORCE_PUSH |  | Per default the action force-pushes - when working with others, or other actions that commit to the same branch this can be set to `true` to ensure the Action fails rather than overwrites changes that happened while it ran. Defaults to `false` |
+| COMMIT_MSG |  | A message to use for the automated commit. Defaults to `Marp Action Build` |
+| MARP_ARGS |  | Any arguments to pass directly to marp |
+
+## 💻 Local development
 
     docker build -t marp-action ./
     docker run -t marp-action
