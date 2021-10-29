@@ -26,7 +26,7 @@ marp ${MARP_ARGS}
 echo "✔  Built Successfully!"
 echo ""
 
-echo "   Publishing to ${GITHUB_REPOSITORY} ${REMOTE_BRANCH}..."
+echo "   Publishing to ${GITHUB_REPOSITORY} ${PUBLISH_TO_BRANCH}..."
 echo ""
 
 remote_repo="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" && \
