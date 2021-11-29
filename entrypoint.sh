@@ -2,6 +2,12 @@
 
 set -e
 
+if [ "$DEPLOY" = ""];
+then
+    # Default
+    DEPLOY=true
+fi
+
 EMOJI_WORKING=(
     "👷 Working..."
     "🏃 Running..."
@@ -26,28 +32,32 @@ marp ${MARP_ARGS}
 echo "✔  Built Successfully!"
 echo ""
 
-echo "   Publishing to ${GITHUB_REPOSITORY} ${PUBLISH_TO_BRANCH}..."
-echo ""
+if [ "$DEPLOY" = true ];
+then
 
-remote_repo="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" && \
-git init && \
-git config user.name "marp-action" && \
-git config user.email "marp-action@users.noreply.github.com" && \
-git add . && \
-git status && \
-curr_branch="$(git rev-parse --abbrev-ref HEAD)" && \
-commit_msg="${COMMIT_MSG:-'Marp Action Build'}" && \
-git commit -m "${commit_msg}" 
+    echo "   Publishing to ${GITHUB_REPOSITORY} ${PUBLISH_TO_BRANCH}..."
+    echo ""
 
-if [ "$NO_FORCE_PUSH" = true ]
-then 
-  git push $remote_repo ${curr_branch}:${PUBLISH_TO_BRANCH}
-else
-  git push --force $remote_repo ${curr_branch}:${PUBLISH_TO_BRANCH}
+    remote_repo="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" && \
+    git init && \
+    git config user.name "marp-action" && \
+    git config user.email "marp-action@users.noreply.github.com" && \
+    git add . && \
+    git status && \
+    curr_branch="$(git rev-parse --abbrev-ref HEAD)" && \
+    commit_msg="${COMMIT_MSG:-'Marp Action Build'}" && \
+    git commit -m "${commit_msg}" 
+
+    if [ "$NO_FORCE_PUSH" = true ];
+    then 
+      git push $remote_repo ${curr_branch}:${PUBLISH_TO_BRANCH}
+    else
+      git push --force $remote_repo ${curr_branch}:${PUBLISH_TO_BRANCH}
+    fi
+
+    echo "✔  Pushed Successfully!"
+    echo ""
 fi
-
-echo "✔  Pushed Successfully!"
-echo ""
 
 echo "$SUCCESS_MESSAGE"
 
