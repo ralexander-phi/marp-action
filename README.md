@@ -1,5 +1,11 @@
 # marp-action
 
+## :exclamation: Deprecated :exclamation:
+
+This repo is now deprecated.
+
+Please see https://github.com/ralexander-phi/marp-to-pages/ for the current recommended approach.
+
 ## Description
 
 Publish your [Marp Presentation](https://marp.app/) to GitHub Pages automatically using a GitHub Action.
